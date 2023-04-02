@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -160,7 +161,8 @@ fun RoundTheTipRow(
     }
 }
 
-private fun calculateTip(
+@VisibleForTesting
+internal fun calculateTip(
     amount: Double,
     tipPercent: Double = 15.0,
     roundUp: Boolean
@@ -178,3 +180,21 @@ fun DefaultPreview() {
         TipTimeScreen()
     }
 }
+
+// Local tests are a type of automated test that directly
+// test a small piece of code to ensure that it functions
+// properly. With local tests, you can test functions,
+// classes, and properties
+
+//  an instrumentation test is a UI test. Instrumentation
+//  tests let you test parts of an app that depend on
+//  the Android API, and its platform APIs and services.
+// UI tests launch an app or part of an app, simulate user
+// interactions, and check whether the app reacted appropriately
+
+// When you run an instrumentation test on Android, the test code is
+// actually built into its own Android Application Package (APK) like a
+// regular Android app. An APK is a compressed file that contains all the code
+// and necessary files to run the app on a device or emulator. The test APK is
+// installed on the device or emulator along with the regular app APK. The test APK
+// then runs its tests against the app APK.
